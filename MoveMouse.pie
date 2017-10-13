@@ -1,0 +1,16 @@
+﻿if Keyboard.RightControl
+  if !var.holding
+    var.pressed = !var.pressed
+  endif
+  var.holding = 1
+else
+  var.holding = 0
+endif
+
+if var.pressed
+  Mouse.DirectInputX += 1
+  var.ticks = var.ticks + 1
+elseif var.ticks > 0
+  Mouse.DirectInputX -= var.ticks
+  var.ticks = 0
+endif
